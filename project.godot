@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="PraktykiGensokyo"
+run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://addons/icon.svg"
 
-[editor_plugins]
+[autoload]
 
-enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
+GameManager="*res://scripts/core/GameManager.gd"
+
+[global_group]
+
+Player=""

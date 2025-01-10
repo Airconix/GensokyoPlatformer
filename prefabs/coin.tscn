@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmm8807o2gye1"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/coin.gd" id="1_sc2ci"]
+[ext_resource type="Texture2D" uid="uid://bebvxrl351a4x" path="res://coin.png" id="2_qw2qa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xa3en"]
+
+[node name="Coin" type="Node2D"]
+scale = Vector2(2.075, 2.075)
+script = ExtResource("1_sc2ci")
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(-0.249999, 0.238094)
+scale = Vector2(0.0400391, 0.0381324)
+texture = ExtResource("2_qw2qa")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xa3en")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

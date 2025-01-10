@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://8w2c8x3g54ak"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/checkpoint.gd" id="1_8wrk2"]
+[ext_resource type="PackedScene" uid="uid://bbuwdh17pmkco" path="res://prefabs/checkpoint.tscn" id="3_dmy4x"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_okqfa"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(31, 17)
+script = ExtResource("1_8wrk2")
+
+[node name="Checkpoint" parent="." instance=ExtResource("3_dmy4x")]
+position = Vector2(71, -18)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(2421.83, -97.1209)
+scale = Vector2(14.8739, 1629.67)
+mesh = SubResource("QuadMesh_okqfa")
