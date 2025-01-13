@@ -7,22 +7,27 @@
 subpixel_positioning = 0
 
 [node name="UiCoins" type="Node2D"]
+position = Vector2(0.500006, 1)
 
 [node name="Coins" type="CanvasLayer" parent="."]
 script = ExtResource("1_w5cxb")
 
 [node name="CoinIcon" type="Sprite2D" parent="Coins"]
-position = Vector2(9, 12)
+position = Vector2(0.500006, 1)
 scale = Vector2(0.0292969, 0.0292969)
 texture = ExtResource("1_e2ddj")
 
 [node name="Label" type="Label" parent="Coins"]
-offset_left = 19.0
-offset_right = 59.0
-offset_bottom = 23.0
+offset_left = 10.5
+offset_top = -10.0
+offset_right = 50.5
+offset_bottom = 13.0
 theme_override_fonts/font = SubResource("SystemFont_1hxhk")
 theme_override_font_sizes/font_size = 16
-text = "0"
+text = "0
+"
 text_overrun_behavior = 1
 uppercase = true
-visible_ratio = -1.0
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true

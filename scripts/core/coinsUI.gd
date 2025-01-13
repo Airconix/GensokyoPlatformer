@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 func _ready():
 	GameManager.gained_coins.connect(update_coin_display)

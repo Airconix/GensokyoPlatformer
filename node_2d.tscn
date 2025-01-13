@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bbuwdh17pmkco" path="res://prefabs/checkpoint.tscn" id="3_dmy4x"]
 [ext_resource type="Texture2D" uid="uid://b5faw5aulbbpy" path="res://icon.svg" id="4_1mtai"]
 [ext_resource type="PackedScene" uid="uid://dmm8807o2gye1" path="res://prefabs/coin.tscn" id="5_6ch31"]
+[ext_resource type="PackedScene" uid="uid://tjwncfdasahs" path="res://prefabs/UICoins.tscn" id="6_wb6kq"]
 [ext_resource type="Script" path="res://scripts/core/coinsUI.gd" id="6_xnpvg"]
-[ext_resource type="Texture2D" uid="uid://bebvxrl351a4x" path="res://coin.png" id="7_fqo4b"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_fvmim"]
 
@@ -16,11 +16,11 @@ size = Vector2(230.864, 256)
 [node name="Node2D" type="Node2D"]
 position = Vector2(271, 11)
 
-[node name="Character" parent="." instance=ExtResource("2_xe7gk")]
-position = Vector2(-293, -16)
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_xe7gk")]
+position = Vector2(-277, -6)
 
 [node name="Checkpoint" parent="." instance=ExtResource("3_dmy4x")]
-position = Vector2(-159, -46)
+position = Vector2(-108, -49)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(2421.83, -97.1209)
@@ -28,48 +28,25 @@ scale = Vector2(14.8739, 1629.67)
 mesh = SubResource("QuadMesh_fvmim")
 
 [node name="Spikes" parent="." instance=ExtResource("3_8uck6")]
-position = Vector2(-474, 286)
+position = Vector2(-734, 294)
 scale = Vector2(4.295, 4.295)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-276, -8)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
 position = Vector2(79, 536)
 scale = Vector2(6.21145, 1)
 texture = ExtResource("4_1mtai")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(66, 551)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(49, 568)
 scale = Vector2(6.21145, 1)
 shape = SubResource("RectangleShape2D_6i3wt")
 
 [node name="Coin" parent="." instance=ExtResource("5_6ch31")]
-position = Vector2(-15, 356)
+position = Vector2(209, 361)
 
-[node name="Coin2" parent="." instance=ExtResource("5_6ch31")]
-position = Vector2(-100, 378)
-
-[node name="Coin3" parent="." instance=ExtResource("5_6ch31")]
-position = Vector2(-208, 366)
-
-[node name="Coin4" parent="." instance=ExtResource("5_6ch31")]
-position = Vector2(-143, 351)
-
-[node name="Coin5" parent="." instance=ExtResource("5_6ch31")]
-position = Vector2(-64, 335)
-
-[node name="UIcoins" type="CanvasLayer" parent="."]
+[node name="UiCoins" parent="." instance=ExtResource("6_wb6kq")]
+position = Vector2(-487, -171)
 script = ExtResource("6_xnpvg")
-
-[node name="CoinIcon" type="Sprite2D" parent="UIcoins"]
-position = Vector2(9, 12)
-scale = Vector2(0.0292969, 0.0292969)
-texture = ExtResource("7_fqo4b")
-
-[node name="CoinDisplay" type="Label" parent="UIcoins"]
-offset_left = 17.0
-offset_right = 59.0
-offset_bottom = 24.0
-theme_override_font_sizes/font_size = 17
-text = "0"
-text_overrun_behavior = 1
