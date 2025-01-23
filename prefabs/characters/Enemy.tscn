@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6bt3o11bphga"]
+
+[ext_resource type="Script" path="res://scripts/charcters/enemy.gd" id="1_lyvg6"]
+
+[sub_resource type="Gradient" id="Gradient_on10h"]
+offsets = PackedFloat32Array(0.162338, 0.227273, 0.311688, 0.350649, 0.428571, 0.5, 0.61039, 0.727273, 0.863636, 0.909091)
+colors = PackedColorArray(0.38958, 0.64742, 0.632427, 1, 0.0377019, 0.10445, 0.100802, 1, 0.456093, 0.49382, 0.0569752, 1, 0.0377019, 0.10445, 0.100802, 1, 1, 1, 0, 1, 0.0377019, 0.10445, 0.100802, 1, 0.14466, 0.115879, 0.29166, 1, 0.347817, 0.347817, 0.347817, 1, 0.610591, 0.410834, 0.26458, 1, 0.797621, 0.218939, 0.270839, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1bwlo"]
+gradient = SubResource("Gradient_on10h")
+fill = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw8fb"]
+size = Vector2(64, 41.0909)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0in4o"]
+size = Vector2(67, 34.25)
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(0.055, 0.11)
+collision_layer = 2
+script = ExtResource("1_lyvg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(1, 0.5)
+texture = SubResource("GradientTexture2D_1bwlo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -18.1818)
+shape = SubResource("RectangleShape2D_vw8fb")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -18.1818)
+shape = SubResource("RectangleShape2D_0in4o")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-54.5455, -9.09091)
+target_position = Vector2(0, 15)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8w2c8x3g54ak"]
+[gd_scene load_steps=11 format=3 uid="uid://8w2c8x3g54ak"]
 
 [ext_resource type="PackedScene" uid="uid://bpdl1y1hqqlq4" path="res://prefabs/characters/character.tscn" id="2_xe7gk"]
 [ext_resource type="PackedScene" uid="uid://cx36nibi2d1pv" path="res://prefabs/spikes.tscn" id="3_8uck6"]
@@ -6,12 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://b5faw5aulbbpy" path="res://icon.svg" id="4_1mtai"]
 [ext_resource type="PackedScene" uid="uid://dmm8807o2gye1" path="res://prefabs/coin.tscn" id="5_6ch31"]
 [ext_resource type="PackedScene" uid="uid://tjwncfdasahs" path="res://prefabs/UICoins.tscn" id="6_wb6kq"]
-[ext_resource type="Script" path="res://scripts/core/coinsUI.gd" id="6_xnpvg"]
+[ext_resource type="PackedScene" uid="uid://b6bt3o11bphga" path="res://prefabs/characters/Enemy.tscn" id="7_5u2qw"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_fvmim"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6i3wt"]
-size = Vector2(230.864, 256)
+size = Vector2(231.049, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm3r2"]
+size = Vector2(5944.39, 243.121)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(271, 11)
@@ -20,7 +23,7 @@ position = Vector2(271, 11)
 position = Vector2(-277, -6)
 
 [node name="Checkpoint" parent="." instance=ExtResource("3_dmy4x")]
-position = Vector2(-108, -49)
+position = Vector2(-116, 63)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(2421.83, -97.1209)
@@ -35,18 +38,34 @@ scale = Vector2(4.295, 4.295)
 position = Vector2(-276, -8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
-position = Vector2(79, 536)
-scale = Vector2(6.21145, 1)
+position = Vector2(79, 544.25)
+scale = Vector2(6.21145, 0.927313)
 texture = ExtResource("4_1mtai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(49, 568)
+position = Vector2(68.4242, 568)
 scale = Vector2(6.21145, 1)
 shape = SubResource("RectangleShape2D_6i3wt")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(670, -10)
+scale = Vector2(0.165, 0.785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall2"]
+position = Vector2(79, 544.25)
+scale = Vector2(6.21145, 0.927313)
+texture = ExtResource("4_1mtai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(2336.89, 559.968)
+shape = SubResource("RectangleShape2D_jm3r2")
 
 [node name="Coin" parent="." instance=ExtResource("5_6ch31")]
 position = Vector2(209, 361)
 
 [node name="UiCoins" parent="." instance=ExtResource("6_wb6kq")]
-position = Vector2(-487, -171)
-script = ExtResource("6_xnpvg")
+position = Vector2(-426, 46)
+
+[node name="Enemy" parent="." instance=ExtResource("7_5u2qw")]
+position = Vector2(1232, 340)
+scale = Vector2(1, 1)

@@ -1,6 +1,6 @@
 extends Area2D
-
+var direction := 1
 var speed = 100
 
-func _physics_process(delta):
-   global_position += global_transform.x * speed * delta
+func _process(delta):
+   position.x += speed * direction * delta
